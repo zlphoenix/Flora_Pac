@@ -34,12 +34,21 @@ def generate_pac(proxy):
 		cndataslist[i].append([ip, mask])
 	PAC_TEMPLATE = '''
 		//inspired from https://github.com/Leask/Flora_Pac
-		function FindProxyForURL(url, host)
-		{
+		function FindProxyForURL(url, host) {
 			var lists = %s;
 			var ip = dnsResolve(host);
 			var index  = parseInt(ip.split('.', 1)[0], 10);
 			var list = lists[index];
+
+			if (isPlainHostName(host)
+				//|| (host === '127.0.0.1')
+				//|| (host === 'localhost')
+				|| (/^127\.0\.0\.1(:[0-9]+)?/.test(host))
+				|| (/gsp.+(\.ls)?\.apple\.com/.test(url))
+				|| (/\\b([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\\b/.test(host))) {
+				return 'DIRECT';
+			}
+
 			for (var i in list) {
 				if (isInNet(ip, list[i][0], list[i][1])) {
 					return 'DIRECT';
