@@ -11,5 +11,5 @@
 					return 'DIRECT';
 				}
 			}
-			return 'SOCKS5 192.168.1.100:1047';
+			return 'SOCKS 192.168.1.100:1047';
 		}
