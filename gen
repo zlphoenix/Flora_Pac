@@ -1,4 +1,4 @@
 #!/bin/sh
 
-./pacgen_v2ex -x "SOCKS5 192.168.1.100:1047" -f flora.chrome.pac
-./pacgen_v2ex -x "SOCKS 192.168.1.100:1047" -f flora.safari.pac
+./pacgen_v2ex -x "SOCKS5 192.168.5.52:1047" -f flora.chrome.pac
+./pacgen_v2ex -x "SOCKS 192.168.5.52:1047" -f flora.safari.pac

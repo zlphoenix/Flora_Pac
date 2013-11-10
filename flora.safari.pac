@@ -11,7 +11,7 @@
 				//|| (host === 'localhost')
 				|| (/^127\.0\.0\.1(:[0-9]+)?/.test(host))
 				|| (/gsp.+(\.ls)?\.apple\.com/.test(url))
-				|| (url === 'podcasts.apple.com')
+				|| (/podcasts\.apple\.com(:[0-9]+)?/.test(url))
 				|| (/\b([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\b/.test(host))) {
 				return 'DIRECT';
 			}
@@ -21,5 +21,5 @@
 					return 'DIRECT';
 				}
 			}
-			return 'SOCKS 192.168.1.100:1047';
+			return 'SOCKS 192.168.5.52:1047';
 		}
